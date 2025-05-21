@@ -8,7 +8,12 @@ const userRepo = AppDataSource.getRepository(User);
 
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { username, password } = req.body;
+    const { username, password, role } = req.body;
+
+    if (!username || !password || !role) {
+      res.status(400).json({ message: 'All fields are required' });
+      return;
+    }
 
     const existingUser = await userRepo.findOneBy({ username });
     if (existingUser) {
@@ -21,7 +26,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     const user = userRepo.create({
       username,
       password: hashedPassword,
-      role: 'Employee',
+      role: role || 'Employee',
     });
 
     await userRepo.save(user);
@@ -33,8 +38,10 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
+      
     const { username, password } = req.body;
 
     const user = await userRepo.findOneBy({ username });
@@ -51,7 +58,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     const token = jwt.sign(
       { userId: user.id, role: user.role },
-      process.env.JWT_SECRET || 'defaultSecret', // fallback
+      process.env.JWT_SECRET || 'defaultSecret',
       { expiresIn: '1d' }
     );
 

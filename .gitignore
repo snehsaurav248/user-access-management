@@ -3,6 +3,7 @@
 # ========================
 client/node_modules/
 server/node_modules/
+node_modules/
 
 # ========================
 # Build/Dist directories
@@ -11,20 +12,26 @@ client/build/
 client/dist/
 server/build/
 server/dist/
+dist/
+dist-ssr/
 
 # ========================
 # Environment files
 # ========================
 client/.env
 server/.env
+*.local
 
 # ========================
 # Logs
 # ========================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # ========================
 # OS-specific files
@@ -37,5 +44,19 @@ Thumbs.db
 # ========================
 coverage/
 temp/
+
+# ========================
+# Editor-specific
+# ========================
 .vscode/
+!.vscode/extensions.json
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+client/node_modules/
+server/node_modules/
+
