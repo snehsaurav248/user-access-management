@@ -1,6 +1,9 @@
 # User Access Management System
 
 A full-stack web application for managing user access to software tools, with role-based authentication and approvals.
+### API Documentation:
+[PostMan Collection](https://documenter.getpostman.com/view/33825190/2sB2qai1xC)
+
 
 ##  Tech Stack
 - **Backend:** Node.js, Express.js, TypeORM, PostgreSQL
@@ -33,13 +36,13 @@ A full-stack web application for managing user access to software tools, with ro
 
 ##  Setup Instructions
 ```bash
-# Backend
-cd backend
+# server
+cd server
 npm install
 # Create .env and configure DB + JWT_SECRET
 npm run dev
 
-# Frontend
-cd ../frontend
+# client
+cd ../client
 npm install
 npm run dev
