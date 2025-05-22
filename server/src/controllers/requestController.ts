@@ -99,3 +99,25 @@ export const updateRequestStatus = async (req: AuthenticatedRequest, res: Respon
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+export const getMyRequests = async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+  try {
+    const userId = req.user?.userId;
+
+    if (!userId) {
+      res.status(401).json({ message: 'Unauthorized: Missing user information' });
+      return;
+    }
+
+    const requests = await requestRepo.find({
+      where: { user: { id: userId } },
+      relations: ['software'],
+      order: { id: 'DESC' },
+    });
+
+    res.json(requests);
+  } catch (error) {
+    console.error('Failed to fetch user requests', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
