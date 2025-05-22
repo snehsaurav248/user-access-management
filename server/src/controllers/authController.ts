@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import AppDataSource from '../config/database';
-import {User} from '../entities/User'; // default import
+import {User} from '../entities/User'; 
 
 const userRepo = AppDataSource.getRepository(User);
 

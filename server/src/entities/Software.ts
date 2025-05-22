@@ -14,5 +14,5 @@ export class Software {
   description!: string;
 
   @Column('simple-array')
-  accessLevels!: AccessLevel[]; // stored as comma-separated string
+  accessLevels!: AccessLevel[]; 
 }

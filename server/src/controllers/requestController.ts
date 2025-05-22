@@ -1,4 +1,3 @@
-// src/controllers/requestController.ts
 import { Response } from 'express';
 import AppDataSource from '../config/database';
 import { Request as AccessRequest } from '../entities/Request';
