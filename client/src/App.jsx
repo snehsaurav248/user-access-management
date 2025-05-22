@@ -15,7 +15,6 @@ function App() {
         <Route path="/request-access" element={<RequestAccess />} />
         <Route path="/create-software" element={<CreateSoftware />} />
         <Route path="/pending-requests" element={<PendingRequests />} />
-        {/* Removed /tailwind-test route */}
       </Routes>
     </BrowserRouter>
   );

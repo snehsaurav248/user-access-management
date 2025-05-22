@@ -1,9 +1,16 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import './Signup.css'; // 👈 Import the CSS
+import './Signup.css';
 
 function Signup() {
-  const [form, setForm] = useState({ username: '', password: '' });
+  const [form, setForm] = useState({
+    username: '',
+    password: '',
+    role: 'Employee',
+  });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -13,9 +20,10 @@ function Signup() {
     e.preventDefault();
     try {
       await api.post('/auth/signup', form);
-      alert('Signup successful. Please login.');
+      alert('Signup successful. Redirecting to login...');
+      navigate('/login'); 
     } catch (err) {
-      alert('Signup failed');
+      alert(err?.response?.data?.message || 'Signup failed');
     }
   };
 
@@ -39,8 +47,23 @@ function Signup() {
             placeholder="Password"
             required
           />
+          <select name="role" value={form.role} onChange={handleChange}>
+            <option value="Employee">Employee</option>
+            <option value="Manager">Manager</option>
+            <option value="Admin">Admin</option>
+          </select>
           <button type="submit">Sign Up</button>
         </form>
+
+        <p style={{ marginTop: '1rem' }}>
+          Already have an account?{' '}
+          <span
+            onClick={() => navigate('/login')}
+            style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+          >
+            Login
+          </span>
+        </p>
       </div>
     </div>
   );

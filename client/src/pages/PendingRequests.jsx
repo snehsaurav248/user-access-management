@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../services/api';
-import './PendingRequests.css'; // Import your CSS
+import './PendingRequests.css'; 
 
 function PendingRequests() {
   const [requests, setRequests] = useState([]);

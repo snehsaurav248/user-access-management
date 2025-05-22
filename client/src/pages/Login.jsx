@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // Import the new CSS file
+import './Login.css';
 
 function Login() {
   const [form, setForm] = useState({ username: '', password: '' });
@@ -17,11 +17,12 @@ function Login() {
       const { data } = await api.post('/auth/login', form);
       localStorage.setItem('token', data.token);
       localStorage.setItem('role', data.role);
+
       if (data.role === 'Admin') navigate('/create-software');
       else if (data.role === 'Manager') navigate('/pending-requests');
       else navigate('/request-access');
     } catch (err) {
-      alert('Login failed');
+      alert(err?.response?.data?.message || 'Login failed');
     }
   };
 
