@@ -10,7 +10,7 @@ import authMiddleware from '../middlewares/authMiddleware';
 
 const router = Router();
 
-router.post('/', authMiddleware('Employees'), submitRequest);
+router.post('/', authMiddleware('Employee'), submitRequest);
 router.get('/', authMiddleware(['Manager', 'Admin']), getPendingRequests);
 router.patch('/:id', authMiddleware(['Manager', 'Admin']), updateRequestStatus);
 

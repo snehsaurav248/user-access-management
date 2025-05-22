@@ -5,7 +5,7 @@ import authMiddleware from '../middlewares/authMiddleware';
 const router = Router();
 
 // Only Admin can create software
-router.post('/', authMiddleware(['Admin', 'Manager', 'Employee']), createSoftware);
+router.post('/', authMiddleware(['Admin']), createSoftware);
 
 // Anyone authenticated can get software list
 router.get('/', authMiddleware(), getSoftwareList);
