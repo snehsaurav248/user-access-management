@@ -13,5 +13,5 @@
     "baseUrl": "./",
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["src", "types"]
+  "include": ["src", "types", "dist/server.ts"]
 }

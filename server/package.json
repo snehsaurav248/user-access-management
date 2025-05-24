@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "dist/server.ts",
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
@@ -19,8 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.0",
     "reflect-metadata": "^0.2.2",
-    "typeorm": "^0.3.24",
-    "typescript": "^5.8.3"
+    "typeorm": "^0.3.24"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
