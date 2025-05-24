@@ -35,6 +35,7 @@ function Navbar() {
           ) : (
             <>
               <Link to="/request-access" className="navbar-btn">Request Access</Link>
+              <Link to="/software-list" className="navbar-btn">Software List</Link> {/* Added link */}
               <Link to="/my-requests" className="navbar-btn">My Requests</Link>
               {['Manager', 'Admin'].includes(user.role) && (
                 <>

@@ -5,13 +5,13 @@ import RequestAccess from './pages/RequestAccess';
 import CreateSoftware from './pages/CreateSoftware';
 import PendingRequests from './pages/PendingRequests';
 import MyRequests from './pages/MyRequests';
+import SoftwareList from './pages/SoftwareList';  
 import Navbar from './components/Navbar';
-
 
 function App() {
   return (
     <BrowserRouter>
-     <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/signup" element={<Signup />} />
@@ -20,6 +20,7 @@ function App() {
         <Route path="/create-software" element={<CreateSoftware />} />
         <Route path="/pending-requests" element={<PendingRequests />} />
         <Route path="/my-requests" element={<MyRequests />} />
+        <Route path="/software-list" element={<SoftwareList />} />  
       </Routes>
     </BrowserRouter>
   );
